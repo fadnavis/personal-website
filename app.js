@@ -4,7 +4,7 @@ var app = express();
 
 
 app.get("/",function(req,res){
-  res.send("This is a home page...WIP");
+  res.render("index.html");
 });
 
 
