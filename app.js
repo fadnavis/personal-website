@@ -13,6 +13,10 @@ app.get("/about",function(req,res){
   res.render("about");
 });
 
+app.get("/contact", function(req,res){
+  res.render("contact");
+});
+
 app.listen(8080,process.env.IP,function(){
   console.log("app has started listening at port");
 });
