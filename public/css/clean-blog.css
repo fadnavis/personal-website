@@ -40,9 +40,9 @@ blockquote {
   font-style: italic;
 }
 hr.small {
-  max-width: 100px;
+  max-width: 625px;
   margin: 15px auto;
-  border-width: 4px;
+  border-width: 2px;
   border-color: white;
 }
 .navbar-custom {

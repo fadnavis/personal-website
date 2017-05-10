@@ -6,10 +6,10 @@ app.use(express.static(__dirname + "/public"));
 
 
 app.get("/",function(req,res){
-  res.render("index");
+  res.render("landing");
 });
 
 
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(8080,process.env.IP,function(){
   console.log("app has started listening at port");
 });
