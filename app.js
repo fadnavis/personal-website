@@ -17,6 +17,6 @@ app.get("/contact", function(req,res){
   res.render("contact");
 });
 
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(8080,process.env.IP,function(){
   console.log("app has started listening at port");
 });
