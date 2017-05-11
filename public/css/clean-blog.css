@@ -22,7 +22,7 @@ h4,
 h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
 }
 a {
   color: #333333;
@@ -35,14 +35,22 @@ a img:hover,
 a img:focus {
   cursor: zoom-in;
 }
+
 blockquote {
   color: #777777;
   font-style: italic;
 }
 hr.small {
-  max-width: 625px;
+  max-width: 395px;
   margin: 15px auto;
-  border-width: 2px;
+  border-width: 1px;
+  border-color: white;
+}
+
+hr.big {
+  max-width: 510px;
+  margin: 15px auto;
+  border-width: 1px;
   border-color: white;
 }
 .navbar-custom {
@@ -89,6 +97,7 @@ hr.small {
   .navbar-custom .nav li a:focus {
     color: rgba(255, 255, 255, 0.8);
   }
+
   .navbar-custom .nav li ul.dropdown-menu a {
     color: #333333;
   }
@@ -154,19 +163,31 @@ hr.small {
   -o-background-size: cover;
   margin-bottom: 50px;
 }
-.intro-header .site-heading,
+
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 100px 0 50px;
+  padding: 100px 0;
   color: white;
 }
-@media only screen and (min-width: 768px) {
-  .intro-header .site-heading,
+@media only screen and (max-width: 1199px) {
   .intro-header .post-heading,
   .intro-header .page-heading {
     padding: 150px 0;
   }
 }
+
+.intro-header .site-heading {
+  padding: 150px 0;
+  color: white;
+}
+
+@media only screen and (max-width: 1199px) {
+  .intro-header .site-heading {
+    /*padding: 150px 0;*/
+    padding: 50px 0;
+  }
+}
+
 .intro-header .site-heading,
 .intro-header .page-heading {
   text-align: center;
@@ -188,7 +209,7 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
-    font-size: 80px;
+    font-size: 70px;
   }
 }
 .intro-header .post-heading h1 {
@@ -337,6 +358,13 @@ footer .copyright {
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
+
+.profilepic {
+  width: 100%;
+  margin-top: 80px;
+  border: 2px solid rgba(255,255,255,0.8);
+}
+
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
