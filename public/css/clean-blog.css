@@ -169,6 +169,11 @@ hr.big {
   padding: 100px 0;
   color: white;
 }
+
+.intro-header .page-heading-black {
+  color: #777777;
+}
+
 @media only screen and (max-width: 1199px) {
   .intro-header .post-heading,
   .intro-header .page-heading {

@@ -11,7 +11,7 @@ var User = require("./models/user");
 
 var blogpostRoutes = require("./routes/blogpost");
 
-var dburl = "mongodb://harsh:harsh@ds137101.mlab.com:37101/harsh-blog"
+var dburl = "mongodb://localhost/port"
 mongoose.connect(dburl);
 
 var app = express();
@@ -76,6 +76,12 @@ app.post("/register",function(req,res){
             });
         }
     });
+});
+
+app.get("/logout",function(req,res){
+  req.logout();
+  console.log("Logging out");
+  res.redirect("/");
 });
 
 app.post("/login",passport.authenticate("local",
