@@ -3,7 +3,7 @@ var router = express.Router();
 var Blogpost = require("../models/blogpost");
 
 //NEW ROUTE
-router.get("/new",function(req,res){
+router.get("/new",isLoggedIn,function(req,res){
   res.render("blogpost/new");
 });
 
@@ -19,7 +19,7 @@ router.get("/:id",function(req,res){
   });
 });
 
-router.post("/",function(req,res){
+router.post("/",isLoggedIn,function(req,res){
 
   var title = req.body.blogtitle;
   var imageurl = req.body.blogimage;
@@ -35,5 +35,12 @@ router.post("/",function(req,res){
     }
   });
 });
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+}
 
 module.exports = router

@@ -60,9 +60,21 @@
                     <li>
                         <a href="/contact">Contact</a>
                     </li>
-                    <li>
-                        <a href="/blogposts/new">Create post</a>
-                    </li>
+                    <% if(!currentuser) { %>
+                      <li>
+                          <a href="/register">Register</a>
+                      </li>
+                      <li>
+                          <a href="/login">Login</a>
+                      </li>
+                    <% } else { %>
+                      <li>
+                          <a href="/blogposts/new">Create post</a>
+                      </li>
+                      <li>
+                          <a href="/blogposts/new">Logout</a>
+                      </li>
+                    <% } %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
