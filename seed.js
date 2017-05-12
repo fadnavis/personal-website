@@ -61,16 +61,6 @@ var data = [
     "\nCow fatback ham kevin flank biltong, shank pork belly tri-tip landjaeger pancetta tongue. Jowl cow pork belly ham, swine biltong venison bacon pork tongue sausage. T-bone ball tip beef ribs cupim filet mignon. Bresaola tail sausage sirloin." +
     "\nJowl bacon boudin ham hock kevin. Ribeye sirloin short ribs bacon bresaola, filet mignon strip steak boudin porchetta turkey. Kevin corned beef sirloin venison capicola andouille. Landjaeger pork chop hamburger, tongue bacon pastrami rump kevin ribeye pig chuck swine." +
     "\nBall tip beef ribs landjaeger spare ribs. Pork loin turducken flank, beef tail cupim bacon pork belly shankle fatback jowl shank andouille meatloaf ground round. Tenderloin biltong shankle swine pork loin shoulder andouille rump kevin. Bacon landjaeger boudin meatloaf chuck picanha t-bone tri-tip pork chop. Flank corned beef beef ribs biltong ground round capicola picanha boudin. Shankle corned beef pastrami, pork chop t-bone sausage pig jerky ground round leberkas rump chicken ball tip flank. Ball tip pig pork belly ham, turkey shankle burgdoggen short ribs."
-  },
-  {
-    title: "Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!",
-    image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
-    fulltext: "Bacon ipsum dolor amet picanha short ribs tri-tip swine, kielbasa short loin boudin kevin. Drumstick corned beef jowl alcatra filet mignon chuck ham hock short ribs frankfurter. Rump filet mignon tongue shoulder biltong. Chuck porchetta filet mignon, picanha swine rump drumstick." +
-    "Ham hock burgdoggen swine kevin. Jerky frankfurter tongue pork loin, porchetta doner fatback. Venison pork sausage drumstick doner. Ground round turducken short loin beef ribs, ham hock picanha beef. Drumstick porkbelly alcatra pork loin, jowl picanha chuck filet mignon ground round leberkas biltong kevin cupim short ribs.Brisket filet mignon ham hock, jerky kielbasa spare ribs chicken burgdoggen. Prosciutto biltong chuck swine. Beef turkey andouille, tri-tip pork chop doner filet mignon pastrami pork belly ball tip pork loin frankfurter cupim chuck. Ham hock shoulder chicken short ribs bacon chuck sirloin meatloaf capicola spare ribs. Prosciutto tail kielbasa, biltong flank sausage brisket bacon pork belly cow. Corned beef pork chop shoulder pastrami boudin turkey shankle tongue, turducken doner ham hock bresaola." +
-    "\nPig andouille brisket swine meatball sirloin doner cow turkey pork chop pork belly fatback biltong turducken. Andouille venison short ribs, pastrami sausage tri-tip shoulder. Frankfurter flank short loin ground round leberkas ball tip hamburger ham. Short loin drumstick boudin ham, biltong venison rump brisket hamburger flank chuck bacon sirloin." +
-    "\nCow fatback ham kevin flank biltong, shank pork belly tri-tip landjaeger pancetta tongue. Jowl cow pork belly ham, swine biltong venison bacon pork tongue sausage. T-bone ball tip beef ribs cupim filet mignon. Bresaola tail sausage sirloin." +
-    "\nJowl bacon boudin ham hock kevin. Ribeye sirloin short ribs bacon bresaola, filet mignon strip steak boudin porchetta turkey. Kevin corned beef sirloin venison capicola andouille. Landjaeger pork chop hamburger, tongue bacon pastrami rump kevin ribeye pig chuck swine." +
-    "\nBall tip beef ribs landjaeger spare ribs. Pork loin turducken flank, beef tail cupim bacon pork belly shankle fatback jowl shank andouille meatloaf ground round. Tenderloin biltong shankle swine pork loin shoulder andouille rump kevin. Bacon landjaeger boudin meatloaf chuck picanha t-bone tri-tip pork chop. Flank corned beef beef ribs biltong ground round capicola picanha boudin. Shankle corned beef pastrami, pork chop t-bone sausage pig jerky ground round leberkas rump chicken ball tip flank. Ball tip pig pork belly ham, turkey shankle burgdoggen short ribs."
   }
 ];
 
@@ -79,6 +69,7 @@ function seedDB() {
     if(err) {
       console.log(err);
     } else {
+      console.log("All posts removed");
       data.forEach(function(post){
         Blogpost.create(post,function(err,post){
           if(err) {

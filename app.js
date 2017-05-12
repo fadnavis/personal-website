@@ -1,17 +1,25 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var seedDB = require("./seed");
+var bodyParser = require("body-parser");
+var expressSanitizer = require("express-sanitizer");
 //var Comment = require("./models/comment");
 var BlogPost = require("./models/blogpost");
+
+var blogpostRoutes = require("./routes/blogpost");
 
 var dburl = "mongodb://harsh:harsh@ds137101.mlab.com:37101/harsh-blog"
 mongoose.connect(dburl);
 
 var app = express();
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(expressSanitizer());
 
-seedDB();
+//seedDB();
+
+app.use("/blogposts/",blogpostRoutes);
 
 app.get("/",function(req,res){
   BlogPost.find({},function(err,posts){
