@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var seedDB = require("./seed");
 //var Comment = require("./models/comment");
 var BlogPost = require("./models/blogpost");
 
@@ -10,6 +11,7 @@ var app = express();
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 
+seedDB();
 
 app.get("/",function(req,res){
   BlogPost.find({},function(err,posts){
