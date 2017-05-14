@@ -9,6 +9,28 @@ $(function() {
     });
 });
 
+function post(path, parameters) {
+    var form = $('<form></form>');
+
+    form.attr("method", "post");
+    form.attr("action", path);
+
+    $.each(parameters, function(key, value) {
+        var field = $('<input></input>');
+
+        field.attr("type", "hidden");
+        field.attr("name", key);
+        field.attr("value", value);
+
+        form.append(field);
+    });
+
+    // The form needs to be a part of the document in
+    // order for us to be able to submit it.
+    $(document.body).append(form);
+    form.submit();
+}
+
 // Navigation Scripts to Show Header on Scroll-Up
 jQuery(document).ready(function($) {
     var MQL = 1170;
@@ -37,4 +59,30 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
             });
     }
+
+    $('#createpost').click(function(){
+      var bg_url = $('.intro-header').css('background-image');
+    // ^ Either "none" or url("...urlhere..")
+      bg_url = /^url\((['"]?)(.*)\1\)$/.exec(bg_url);
+      bg_url = bg_url ? bg_url[2] : ""; // If matched, retrieve url, otherwise ""
+      post('/blogposts/',{blogtitle:$('#h1_title').text(),blogimage:bg_url,blogfulltext:$('#p_fulltext').text()})
+    });
+    // $('.navbar-custom').click(function(){alert('clicked navbar!');});
+    // $('.editHTML').css('visibility','hidden');
+    // $('#blogfulltextpreview').css('visibility','hidden');
+    // $('.previewHTML').click(function(){
+    //   $('#blogfulltext').css('visibility','hidden');
+    //   $('#blogfulltextpreview').css('visibility','visible');
+    //   $('#blogfulltextpreview').text($('#blogfulltext').val());
+    //   this.css('visibility','hidden');
+    //   $('.editHTML').css('visibility','visible');
+    // });
+    //
+    // $('#editHTML').click(function(){
+    //   $('#blogfulltext').css('visibility','hidden');
+    //   $('#blogfulltextpreview').css('visibility','visible');
+    //   //$('#blogfulltextpreview').innerHTML = $('#blogfulltext').value;
+    //   this.css('visibility','hidden');
+    //   $('#previewHTML').css('visibility','visible');
+    // });
 });

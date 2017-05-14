@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url(<%= blogpostimage%>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1 id="h1_title"><%= blogposttitle %></h1>
+                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p><%- blogpostfulltext %></p>
+                </div>
+                <p id="p_fulltext" style="display:none;"><%= blogpostfulltext %></p>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <div class="btn btn-default previewHTML"><a href="#" onclick="history.go(-1)">Edit</a></div>
+                </div>
+                <div class="form-group col-xs-6">
+                    <button type="submit" id="createpost" class="btn btn-default">Create Post</button>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+<% include ../partials/footer %>

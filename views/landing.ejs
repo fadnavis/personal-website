@@ -11,7 +11,8 @@
                         <span class="subheading">Hi there! I am </span>
                         <div style="margin: 20px 0;"></div>
                         <h1>Harsh Fadnavis</h1>
-
+                        <hr class="big">
+                        <span class="subheading">Welcome to my Blog!</span>
                     </div>
                 </div>
             </div>
@@ -29,7 +30,7 @@
                               <%= blogpost.title %>
                           </h2>
                           <h3 class="post-subtitle">
-                              <p><%= blogpost.fulltext.substring(0,100) %>...</p>
+                              <p><%- blogpost.fulltext.substring(0,100) %>...</p>
                           </h3>
                       </a>
                       <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>

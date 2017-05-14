@@ -11,7 +11,7 @@ var User = require("./models/user");
 
 var blogpostRoutes = require("./routes/blogpost");
 
-var dburl = "mongodb://localhost/port"
+var dburl = "mongodb://harsh:harsh2wsx#edc@ds137101.mlab.com:37101/harsh-blog"
 mongoose.connect(dburl);
 
 var app = express();

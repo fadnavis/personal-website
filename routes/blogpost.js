@@ -7,6 +7,15 @@ router.get("/new",isLoggedIn,function(req,res){
   res.render("blogpost/new");
 });
 
+//PREVIEW ROUTE (Not a RESTful compliant route)
+router.post("/preview",function(req,res){
+  var title = req.body.blogtitle;
+  var imageurl = req.body.blogimage;
+  var fulltext = req.body.blogfulltext;
+  fulltext = req.sanitize(fulltext);
+  res.render("blogpost/preview",{blogposttitle: title,blogpostimage: imageurl, blogpostfulltext: fulltext});
+});
+
 //SHOW ROUTE
 router.get("/:id",function(req,res){
   var id = req.params.id;
