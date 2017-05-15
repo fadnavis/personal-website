@@ -9,6 +9,58 @@ $(function() {
     });
 });
 
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 10, // The length of each line
+  width: 4, // The line thickness
+  radius: 11, // The radius of the inner circle
+  rotate: 0, // The rotation offset
+  color: '#000', // #rgb or #rrggbb
+  speed: 0.6, // Rounds per second
+  trail: 32, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: 'auto', // Top position relative to parent in px
+  left: 'auto' // Left position relative to parent in px
+};
+
+function element_in_scroll(elem){
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function infinitescrolling() {
+  if (element_in_scroll(".blogpostlist .post-preview:last")) {
+    $(document).unbind('scroll');
+    var target = $('#loader').get(0);
+    var spinner = new Spinner(opts);
+    spinner.spin(target);
+    $.ajax({
+      type: "POST",
+      url: '/loadposts/',
+      dataType: "json",
+      data: {index_count:$('#current_index').text()}
+    }).done(function( msg ) {
+      $(".blogpostlist").append(msg.htmlstring);
+      $('p#current_index').text(msg.index_count);
+      spinner.stop();
+      if (msg.count != 0) {
+        $(document).scroll(function(e){
+          //callback to the method to check if the user scrolled to the last element of your list/feed
+          infinitescrolling();
+        })
+      }
+    });
+  };
+}
+
 function post(path, parameters) {
     var form = $('<form></form>');
 
@@ -59,6 +111,10 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
             });
     }
+
+    $(document).scroll(function(e){
+      infinitescrolling();
+    });
 
     $('#createpost').click(function(){
       var bg_url = $('.intro-header').css('background-image');

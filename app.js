@@ -10,8 +10,9 @@ var BlogPost = require("./models/blogpost");
 var User = require("./models/user");
 
 var blogpostRoutes = require("./routes/blogpost");
+var loadpostRoutes = require("./routes/loadposts");
 
-var dburl = "mongodb://harsh:harsh2wsx#edc@ds137101.mlab.com:37101/harsh-blog"
+var dburl = process.env.DATABASEURL;
 mongoose.connect(dburl);
 
 var app = express();
@@ -42,6 +43,7 @@ app.use(function(req,res,next){
 //seedDB();
 
 app.use("/blogposts/",blogpostRoutes);
+app.use("/loadposts/",loadpostRoutes);
 
 app.get("/",function(req,res){
   BlogPost.find({},function(err,posts){

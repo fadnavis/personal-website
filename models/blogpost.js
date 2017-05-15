@@ -3,6 +3,7 @@ var blogpostSchema = new mongoose.Schema({
   title: String,
   image: String,
   fulltext: String,
+  timestamp: { type: Date, default: Date.now},
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,

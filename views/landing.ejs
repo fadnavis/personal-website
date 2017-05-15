@@ -1,5 +1,6 @@
   <% include ./partials/header %>
     <!-- Set your background image for this header on the line below. -->
+    <script src="http://fgnass.github.io/spin.js/spin.js"></script>
     <header class="intro-header fadeinimage" style="background-image: url('img/john-towner-154060_small.jpg')">
         <div class="container">
             <div class="row">
@@ -22,8 +23,12 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 blogpostlist">
+                <% var i=0; %>
                 <% blogposts.forEach(function(blogpost){ %>
+                  <% if (i == 4) { %>
+                  <%  return; %>
+                  <% } %>
                   <div class="post-preview">
                       <a href="/blogposts/<%= blogpost.id %>">
                           <h2 class="post-title">
@@ -36,18 +41,26 @@
                       <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                   </div>
                   <hr>
+                  <% i++; %>
                 <% }); %>
 
                 <!-- Pager -->
-                <ul class="pager">
+                <!-- <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
+        <div class="row" style="margin:20px 0; padding: auto;">
+          <div class="col-md-2 col-md-offset-5 col-xs-12 col-xs-offset-6">
+            <div id="loader">
+            </div>
+          </div>
+        </div>
+
     </div>
 
     <hr>
-
+    <p id="current_index" style="display:none">1</p>
 <% include ./partials/footer %>
