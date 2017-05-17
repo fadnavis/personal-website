@@ -12,7 +12,7 @@ router.post("/preview",function(req,res){
   var title = req.body.blogtitle;
   var imageurl = req.body.blogimage;
   var fulltext = req.body.blogfulltext;
-  fulltext = req.sanitize(fulltext);
+  //fulltext = req.sanitize(fulltext);
   res.render("blogpost/preview",{blogposttitle: title,blogpostimage: imageurl, blogpostfulltext: fulltext});
 });
 
@@ -33,7 +33,7 @@ router.post("/",isLoggedIn,function(req,res){
   var title = req.body.blogtitle;
   var imageurl = req.body.blogimage;
   var fulltext = req.body.blogfulltext;
-  fulltext = req.sanitize(fulltext);
+  //fulltext = req.sanitize(fulltext);
   var newBlogPost = {title: title,image: imageurl, fulltext: fulltext};
   Blogpost.create(newBlogPost,function(err,post){
     if(err) {

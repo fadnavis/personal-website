@@ -38,7 +38,7 @@
                               <p><%- blogpost.fulltext.substring(0,100) %>...</p>
                           </h3>
                       </a>
-                      <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                      <p class="post-meta">Posted on <%= blogpost.timestamp.toDateString() %></p>
                   </div>
                   <hr>
                   <% i++; %>
