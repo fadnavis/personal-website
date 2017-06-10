@@ -19,7 +19,9 @@ router.post("/",function(req,res){
         htmlstring += "</h2><h3 class=\"post-subtitle\"><p>";
         htmlstring += post.fulltext.substring(0,100);
         htmlstring += "...</p></h3></a>";
-        htmlstring += "<p class=\"post-meta\">Posted by <a href=\"#\">Start Bootstrap</a> on September 24, 2014</p></div><hr>";
+        htmlstring += "<p class=\"post-meta\">Posted on";
+        htmlstring += post.timestamp.toDateString();
+        htmlstring += "</p></div><hr>";
       });
       var responseObject = {index_count: String(pageInt+1),htmlstring: htmlstring, count: posts.length};
       res.send(responseObject);
