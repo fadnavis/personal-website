@@ -46,7 +46,7 @@ app.use("/blogposts/",blogpostRoutes);
 app.use("/loadposts/",loadpostRoutes);
 
 app.get("/",function(req,res){
-  BlogPost.find({},function(err,posts){
+  BlogPost.find({}).sort({timestamp:-1}).limit(4).exec(function(err,posts){
     if(err) {
       console.log("Some error ocurred fetching data");
     } else {

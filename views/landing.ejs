@@ -1,66 +1,61 @@
-  <% include ./partials/header %>
-    <!-- Set your background image for this header on the line below. -->
-    <script src="http://fgnass.github.io/spin.js/spin.js"></script>
-    <header class="intro-header fadeinimage" style="background-image: url('img/john-towner-154060_small.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
-                  <img class="img-circle profilepic" src='img/harsh2.jpg'>
-                </div>
-                <div class="col-lg-7 col-lg-offset-0  col-xs-10 col-xs-offset-1">
-                    <div class="site-heading">
-                        <span class="subheading">Hi there! I am </span>
-                        <div style="margin: 20px 0;"></div>
-                        <h1>Harsh Fadnavis</h1>
-                        <hr class="big">
-                        <span class="subheading">Welcome to my Blog!</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 blogpostlist">
-                <% var i=0; %>
-                <% blogposts.forEach(function(blogpost){ %>
-                  <% if (i == 4) { %>
-                  <%  return; %>
-                  <% } %>
-                  <div class="post-preview">
-                      <a href="/blogposts/<%= blogpost.id %>">
-                          <h2 class="post-title">
-                              <%= blogpost.title %>
-                          </h2>
-                          <h3 class="post-subtitle">
-                              <p><%- blogpost.fulltext.substring(0,100) %>...</p>
-                          </h3>
-                      </a>
-                      <p class="post-meta">Posted on <%= blogpost.timestamp.toDateString() %></p>
+<% include ./partials/header %>
+  <!-- Set your background image for this header on the line below. -->
+  <script src="http://fgnass.github.io/spin.js/spin.js"></script>
+  <header class="intro-header">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
+                <img class="img-circle profilepic" src='img/harsh4.jpg'>
+              </div>
+              <div class="col-lg-7 col-lg-offset-0  col-xs-10 col-xs-offset-1">
+                  <div class="site-heading">
+                      <span class="subheading">Hi, I am </span>
+                      <div style="margin: 20px 0;"></div>
+                      <h1>Harsh Fadnavis</h1>
+                      <hr class="big">
+                      <span class="subheading">Product and Business</span>
                   </div>
-                  <hr>
-                  <% i++; %>
-                <% }); %>
+              </div>
+          </div>
+      </div>
+  </header>
 
-                <!-- Pager -->
-                <!-- <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul> -->
-            </div>
-        </div>
-        <div class="row" style="margin:20px 0; padding: auto;">
-          <div class="col-md-2 col-md-offset-6 col-xs-12 col-xs-offset-6">
-            <div id="loader">
-            </div>
+  <!-- Main Content -->
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 blogpostlist">
+              <% blogposts.forEach(function(blogpost){ %>
+                <div class="post-preview">
+                    <a href="/blogposts/<%= blogpost.id %>">
+                        <h2 class="post-title">
+                            <%= blogpost.title %>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <p><%- blogpost.fulltext.substring(0,100) %>...</p>
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted on <%= blogpost.timestamp.toDateString() %></p>
+                </div>
+                <hr>
+              <% }); %>
+
+              <!-- Pager -->
+              <!-- <ul class="pager">
+                  <li class="next">
+                      <a href="#">Older Posts &rarr;</a>
+                  </li>
+              </ul> -->
+          </div>
+      </div>
+      <div class="row" style="margin:20px 0; padding: auto;">
+        <div class="col-md-2 col-md-offset-6 col-xs-12 col-xs-offset-6">
+          <div id="loader">
           </div>
         </div>
+      </div>
 
-    </div>
+  </div>
 
-    <hr>
-    <p id="current_index" style="display:none">1</p>
+  <hr>
+  <p id="current_index" style="display:none">1</p>
 <% include ./partials/footer %>
